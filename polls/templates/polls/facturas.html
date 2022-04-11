@@ -1,0 +1,117 @@
+{% extends "polls/base.html" %}
+{% block content%}
+
+
+<div class="container">
+<div class="row">
+    <h3> Cuit: {{ request.session.cuit }} </h3>
+<div class="col-md-6">
+    <div class="card m-b-30">
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h5 class="card-title mb-0">Facturas</h5>
+                </div>
+                <div class="col-4">
+                    <ul class="list-inline-group text-right mb-1 pl-0">
+                        <li class="list-inline-item mr-0 font-12"><i class="feather icon-more-vertical- font-20 text-primary"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="product-file-type">
+                <ul class="list-unstyled">
+                    {% if request.session.abril_exist %}
+                        <li class="media mb-3">
+                            <span class="mr-3 align-self-center img-icon danger-rgba text-danger">.pdf</span>
+                            <div class="media-body">
+                            <h5 class="font-16 mb-1"> Abril<i class="feather icon-download-cloud float-right"></i></h5>
+                            <p><a href="/facturas/facturas_abril/{{ cuit }}.pdf">Descargar</a></p>
+                            </div>
+                        </li>
+                    {% endif %}
+                    {% if request.session.marzo_exist %}
+                        <li class="media mb-3">
+                            <span class="mr-3 align-self-center img-icon danger-rgba text-danger">.pdf</span>
+                            <div class="media-body">
+                            <h5 class="font-16 mb-1"> Marzo<i class="feather icon-download-cloud float-right"></i></h5>
+                            <p><a href="/facturas/facturas_marzo/{{ cuit }}.pdf">Descargar</a></p>
+                            </div>
+                        </li>
+                    {% endif %}
+                    {% if request.session.febrero_exist %}
+                        <li class="media mb-3">
+                            <span class="mr-3 align-self-center img-icon danger-rgba text-danger">.pdf</span>
+                            <div class="media-body">
+                            <h5 class="font-16 mb-1"> Febrero<i class="feather icon-download-cloud float-right"></i></h5>
+                            <p><a href="/facturas/facturas_febrero/{{ cuit }}.pdf">Descargar</a></p>
+                            </div>
+                        </li>
+                    {% endif %}
+                    {% if request.session.enero_exist %}
+                    <li class="media mb-3">
+                            <span class="mr-3 align-self-center img-icon danger-rgba text-danger">.pdf</span>
+                            <div class="media-body">
+                            <h5 class="font-16 mb-1"> Enero<i class="feather icon-download-cloud float-right"></i></h5>
+                            <p><a href="/facturas/facturas_enero/{{ cuit }}.pdf">Descargar</a></p>
+                            </div>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="card m-b-30">
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h5 class="card-title mb-0">Notas de credito</h5>
+                </div>
+                <div class="col-4">
+                    <ul class="list-inline-group text-right mb-1 pl-0">
+                        <li class="list-inline-item mr-0 font-12"><i class="feather icon-more-vertical- font-20 text-primary"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="product-file-type">
+                <ul class="list-unstyled">
+                    {% if request.session.nc_marzo_exist %}
+                        <li class="media mb-3">
+                            <span class="mr-3 align-self-center img-icon danger-rgba text-danger">.pdf</span>
+                            <div class="media-body">
+                            <h5 class="font-16 mb-1">Marzo<i class="feather icon-download-cloud float-right"></i></h5>
+                            <p><a href="/facturas/nc_marzo/{{ cuit }}.pdf">Descargar</a></p>
+                            </div>
+                        </li>
+                    {% endif %}
+                    {% if request.session.nc_febrero_exist %}
+                    <li class="media mb-3">
+                        <span class="mr-3 align-self-center img-icon danger-rgba text-danger">.pdf</span>
+                        <div class="media-body">
+                        <h5 class="font-16 mb-1">Febrero<i class="feather icon-download-cloud float-right"></i></h5>
+                        <p><a href="/facturas/nc_febrero/{{ cuit }}.pdf">Descargar</a></p>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% if request.session.nc_enero_exist %}
+                    <li class="media mb-3">
+                        <span class="mr-3 align-self-center img-icon danger-rgba text-danger">.pdf</span>
+                        <div class="media-body">
+                        <h5 class="font-16 mb-1">Enero<i class="feather icon-download-cloud float-right"></i></h5>
+                        <p><a href="/facturas/nc_enero/{{ cuit }}.pdf">Descargar</a></p>
+                        </div>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    <p> Las notas de crédito se generan únicamente si se abono previo al 18 de cada mes, accediendo al 10% de descuento.</p>
+</div>
+{% endblock %}

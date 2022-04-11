@@ -1,0 +1,22 @@
+{% extends "polls/base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+
+<div class="container">
+    <div class="row justify-content-left align-items-center pt-5">
+        <div class="col-md-8">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Ingrese su número de CUIT</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-primary mt-3 pt-1 border-0" type="submit" style="background-color: #5f788a">Buscar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

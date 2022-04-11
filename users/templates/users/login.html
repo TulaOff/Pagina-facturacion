@@ -1,0 +1,20 @@
+{% extends "polls/base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-2">Iniciar Sesión</legend>
+                <small class="mb-4">El usuario es el número de CUIT</small>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="botones btn-outline-info btn btn-light" type="submit" style="margin-top:2%; margin-bottom:2%'">Inicia Sesión</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">No tengo usuario: <a class="text-decoration-none" href="{% url 'register' %}" class="ml-2">Registrarse</a></small>
+        </div>
+    </div>
+{% endblock %}
