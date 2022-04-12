@@ -1,1 +1,1 @@
-web: gunicorn facturacion-project.wsgi
+web: gunicorn facturacion_project.wsgi
