@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
-import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +25,7 @@ SECRET_KEY = os.environ.get('FACTURACION_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG_FACTURACION')
 
-ALLOWED_HOSTS = ['facturacionmd.herokuapp.com']
+ALLOWED_HOSTS = ['facturacionmd.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -154,4 +153,3 @@ MEDIA_URL_3 = '/facturas/facturas_abril/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-django_heroku.settings(locals())
